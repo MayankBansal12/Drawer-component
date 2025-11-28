@@ -46,18 +46,78 @@ export const menuData: MenuItem[] = [
             title: "Custom Applications",
             description: "Tailored platforms for your teams",
             icon: Sparkles,
+            children: [
+              {
+                id: "overview",
+                title: "Platform Overview",
+                description: "See what’s new and upcoming",
+                icon: Sparkles,
+              },
+              {
+                id: "quick-actions",
+                title: "Quick Actions",
+                description: "Jump to the most used workflows",
+                icon: Rocket,
+              },
+              {
+                id: "status",
+                title: "System Status",
+                description: "Realtime uptime and maintenance windows",
+                icon: Network,
+              },
+            ],
           },
           {
             id: "integrations",
             title: "Systems Integrations",
             description: "Connect CRMs, ERPs, and data pipelines",
             icon: Waypoints,
+            children: [
+              {
+                id: "overview",
+                title: "Platform Overview",
+                description: "See what’s new and upcoming",
+                icon: Sparkles,
+              },
+              {
+                id: "quick-actions",
+                title: "Quick Actions",
+                description: "Jump to the most used workflows",
+                icon: Rocket,
+              },
+              {
+                id: "status",
+                title: "System Status",
+                description: "Realtime uptime and maintenance windows",
+                icon: Network,
+              },
+            ],
           },
           {
             id: "automation",
             title: "Automation Suites",
             description: "Intelligent workflows and process automation",
             icon: Rocket,
+            children: [
+              {
+                id: "overview",
+                title: "Platform Overview",
+                description: "See what’s new and upcoming",
+                icon: Sparkles,
+              },
+              {
+                id: "quick-actions",
+                title: "Quick Actions",
+                description: "Jump to the most used workflows",
+                icon: Rocket,
+              },
+              {
+                id: "status",
+                title: "System Status",
+                description: "Realtime uptime and maintenance windows",
+                icon: Network,
+              },
+            ],
           },
         ],
       },
@@ -108,18 +168,118 @@ export const menuData: MenuItem[] = [
     title: "Company",
     description: "Learn about our organization and culture",
     icon: Building2,
+    children: [
+      {
+        id: "about",
+        title: "About Us",
+        description: "Mission, vision, and leadership",
+        icon: Building2,
+      },
+      {
+        id: "careers",
+        title: "Careers",
+        description: "Open roles and hiring process",
+        icon: ChartSpline,
+      },
+      {
+        id: "newsroom",
+        title: "Newsroom",
+        description: "Press releases and media kit",
+        icon: Layers3,
+      },
+    ],
   },
   {
     id: "resources",
     title: "Resources",
     description: "Knowledge base, tools, and learning materials",
     icon: Waypoints,
+    children: [
+      {
+        id: "docs",
+        title: "Documentation",
+        description: "Guides, API refs, and tutorials",
+        icon: Cpu,
+        children: [
+          {
+            id: "overview",
+            title: "Platform Overview",
+            description: "See what’s new and upcoming",
+            icon: Sparkles,
+          },
+          {
+            id: "quick-actions",
+            title: "Quick Actions",
+            description: "Jump to the most used workflows",
+            icon: Rocket,
+          },
+          {
+            id: "status",
+            title: "System Status",
+            description: "Realtime uptime and maintenance windows",
+            icon: Network,
+          },
+        ],
+      },
+      {
+        id: "webinars",
+        title: "Live & On-demand",
+        description: "Upcoming events and replays",
+        icon: Cloud,
+        children: [
+          {
+            id: "overview",
+            title: "Platform Overview",
+            description: "See what’s new and upcoming",
+            icon: Sparkles,
+          },
+          {
+            id: "quick-actions",
+            title: "Quick Actions",
+            description: "Jump to the most used workflows",
+            icon: Rocket,
+          },
+          {
+            id: "status",
+            title: "System Status",
+            description: "Realtime uptime and maintenance windows",
+            icon: Network,
+          },
+        ],
+      },
+      {
+        id: "customer-stories",
+        title: "Customer Stories",
+        description: "Use cases from leading teams",
+        icon: Sparkles,
+      },
+    ],
   },
   {
     id: "contact",
     title: "Contact",
     description: "Get in touch with our team",
     icon: LifeBuoy,
+    children: [
+      {
+        id: "sales",
+        title: "Talk to Sales",
+        description: "Strategize an enterprise rollout",
+        icon: ChartSpline,
+      },
+      {
+        id: "support",
+        title: "Customer Support",
+        description: "Around-the-clock assistance",
+        icon: LifeBuoy,
+      },
+      {
+        id: "community",
+        title: "Community",
+        description: "Join forums and user groups",
+        icon: Waypoints,
+      },
+    ],
   },
 ]
 

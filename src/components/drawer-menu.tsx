@@ -48,6 +48,19 @@ const DrawerMenu = () => {
     const [stack, setStack] = React.useState<MenuScreen[]>([])
     const [direction, setDirection] = React.useState<Direction>(Direction.FORWARD)
 
+    React.useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "o") {
+                event.preventDefault()
+                setOpen(true)
+                setStack([rootScreen])
+            }
+        }
+
+        window.addEventListener("keydown", handleKeyDown)
+        return () => window.removeEventListener("keydown", handleKeyDown)
+    }, [])
+
     const currentScreen = stack.at(-1)
     const level = stack.length
 
@@ -92,7 +105,7 @@ const DrawerMenu = () => {
                 </Button>
             </DrawerTrigger>
 
-            <DrawerContent className="mx-auto w-full max-w-md rounded-2xl border px-0">
+            <DrawerContent className="mx-4 w-auto max-w-md rounded-2xl border px-0 sm:mx-auto sm:w-full">
                 {currentScreen && (
                     <div className="flex flex-col gap-4 px-6 pt-6">
                         {level > 1 && (
