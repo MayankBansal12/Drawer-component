@@ -2,6 +2,9 @@ import { Button } from "@/components/ui/button"
 import {
     Drawer,
     DrawerContent,
+    DrawerDescription,
+    DrawerHeader,
+    DrawerTitle,
     DrawerTrigger
 } from "@/components/ui/drawer"
 import { menuData, type MenuItem } from "@/mocks/menu"
@@ -106,6 +109,12 @@ const DrawerMenu = () => {
             </DrawerTrigger>
 
             <DrawerContent className="mx-4 w-auto max-w-md rounded-2xl border px-0 sm:mx-auto sm:w-full">
+                <DrawerHeader className="sr-only">
+                    <DrawerTitle>Navigation menu</DrawerTitle>
+                    <DrawerDescription>
+                        Browse nested categories and select a destination
+                    </DrawerDescription>
+                </DrawerHeader>
                 {currentScreen && (
                     <div className="flex flex-col gap-4 px-6 pt-6">
                         {level > 1 && (
