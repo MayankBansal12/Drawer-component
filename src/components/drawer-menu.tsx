@@ -16,6 +16,11 @@ type MenuScreen = {
     items: MenuItem[]
 }
 
+enum Direction {
+    FORWARD = "forward",
+    BACKWARD = "backward",
+}
+
 const rootScreen: MenuScreen = {
     id: "root",
     heading: "Explore",
@@ -24,30 +29,24 @@ const rootScreen: MenuScreen = {
 }
 
 const screenVariants = {
-    enter: (direction: "forward" | "backward") => ({
-        x: direction === "forward" ? 36 : -36,
+    enter: (direction: Direction) => ({
+        x: direction === Direction.FORWARD ? 36 : -36,
         opacity: 0,
-        position: "absolute" as const,
-        width: "100%",
     }),
     center: {
         x: 0,
         opacity: 1,
-        position: "relative" as const,
-        width: "100%",
     },
-    exit: (direction: "forward" | "backward") => ({
-        x: direction === "forward" ? -36 : 36,
+    exit: (direction: Direction) => ({
+        x: direction === Direction.FORWARD ? -36 : 36,
         opacity: 0,
-        position: "absolute" as const,
-        width: "100%",
     }),
 }
 
 const DrawerMenu = () => {
     const [open, setOpen] = React.useState(false)
     const [stack, setStack] = React.useState<MenuScreen[]>([])
-    const [direction, setDirection] = React.useState<"forward" | "backward">("forward")
+    const [direction, setDirection] = React.useState<Direction>(Direction.FORWARD)
 
     const currentScreen = stack.at(-1)
     const level = stack.length
@@ -56,21 +55,16 @@ const DrawerMenu = () => {
         setOpen(nextOpen)
 
         if (nextOpen) {
-            setStack((prev) => (prev.length ? prev : [rootScreen]))
+            setStack([rootScreen])
         } else {
             setStack([])
         }
     }
 
     const handleBack = () => {
-        setDirection("backward")
+        setDirection(Direction.BACKWARD)
         setStack((prev) => {
             const next = prev.slice(0, -1)
-
-            if (next.length === 0) {
-                setOpen(false)
-            }
-
             return next
         })
     }
@@ -78,7 +72,7 @@ const DrawerMenu = () => {
     const handleItemSelect = (item: MenuItem) => {
         if (!item.children?.length) return
 
-        setDirection("forward")
+        setDirection(Direction.FORWARD)
         setStack((prev) => [
             ...prev,
             {
